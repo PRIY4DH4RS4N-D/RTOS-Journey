@@ -93,7 +93,7 @@ RTOS-Journey/
 
 **Priyadharsan D**
 - GitHub: [@PRIY4DH4RS4N-D](https://github.com/PRIY4DH4RS4N-D)
-- Focus: Embedded Systems, VLSI, Real-Time Operating Systems (RTOS), Firmware Engineering
+- Focus: Embedded Systems, Real-Time Operating Systems (RTOS), Firmware Engineering
 
 ---
 
