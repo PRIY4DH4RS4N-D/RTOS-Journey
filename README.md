@@ -39,13 +39,15 @@ FreeRTOS operates as a preemptive, priority-driven real-time kernel. On the Espr
 | # | Experiment Name | Focus Area | Status | Directory Link |
 | :-: | :--- | :--- | :-: | :--- |
 | **01** | **ESP32 FreeRTOS LED Blink** | Task Creation, Preemption, State FSM, `vTaskDelay()` | Completed | [01_ESP32_FreeRTOS_LED_Blink](./01_ESP32_FreeRTOS_LED_Blink/) |
-| **02** | **Multi-Task Scheduling & Concurrency** | Dual tasks, independent rates, core affinity (`PinnedToCore`) | Planned | *Upcoming* |
+| **02** | **Native ESP-IDF Multiple Tasks** | Dual tasks, ESP-IDF drivers, `app_main()`, independent scheduling | Completed | [02_ESP32_Native_ESP_IDF_Multiple_Tasks](./02_ESP32_Native_ESP_IDF_Multiple_Tasks/) |
 | **03** | **Task Priorities & Preemption** | Priority inversions, starvation, tick-based time slicing | Planned | *Upcoming* |
-| **04** | **Queue Management & IPC** | Safe cross-task message passing, FIFO buffers, telemetry | Planned | *Upcoming* |
-| **05** | **Binary & Counting Semaphores** | Hardware interrupt synchronization (ISR to Task handoff) | Planned | *Upcoming* |
-| **06** | **Mutexes & Shared Resource Arbitration** | Critical section guarding, Priority Inheritance | Planned | *Upcoming* |
-| **07** | **Software Timers & Watchdogs** | One-shot and auto-reload timers, task health monitoring | Planned | *Upcoming* |
-| **08** | **Event Groups & Task Notifications** | Low-overhead flags, multi-event barrier synchronization | Planned | *Upcoming* |
+| **04** | **Task Synchronization** | Semaphores, Mutexes, critical sections | Planned | *Upcoming* |
+| **05** | **Queues & Inter-Task Communication** | Safe cross-task message passing, FIFO buffers, telemetry | Planned | *Upcoming* |
+| **06** | **Binary & Counting Semaphores** | Hardware interrupt synchronization (ISR to Task handoff) | Planned | *Upcoming* |
+| **07** | **Mutexes & Shared Resources** | Critical section guarding, Priority Inheritance | Planned | *Upcoming* |
+| **08** | **Software Timers** | One-shot and auto-reload timers, task health monitoring | Planned | *Upcoming* |
+| **09** | **Interrupts & ISR** | GPIO interrupts, ISR design, deferred processing | Planned | *Upcoming* |
+| **10** | **Memory Management** | Stack analysis, heap management, memory optimization | Planned | *Upcoming* |
 
 ---
 
@@ -55,6 +57,13 @@ FreeRTOS operates as a preemptive, priority-driven real-time kernel. On the Espr
 - **Objective**: Transition from blocking bare-metal delays (`delay()`) to non-blocking preemptive FreeRTOS tasks.
 - **Key Concepts**: `xTaskCreate()`, task stack sizing (2048 bytes), task priorities, task finite state machine (Running, Blocked, Ready), `vTaskDelay()`, `pdMS_TO_TICKS()`, and Arduino core's `loopTask` relationship.
 - **Hardware Validated**: ESP32-WROOM-32 onboard blue LED on GPIO 2 blinking at a deterministic 1 Hz rate.
+- **Framework**: Arduino-ESP32 Core
+
+### [Experiment 02: Native ESP-IDF Multiple FreeRTOS Tasks](./02_ESP32_Native_ESP_IDF_Multiple_Tasks/)
+- **Objective**: Transition from Arduino framework to native ESP-IDF firmware development with dual independently scheduled FreeRTOS tasks.
+- **Key Concepts**: `app_main()` entry point, ESP-IDF GPIO driver (`gpio_set_level()`), ESP logging system (`ESP_LOGI()`), dual-task concurrency, preemptive scheduling, task state lifecycle, native FreeRTOS API access.
+- **Hardware Validated**: ESP32-WROOM-32 with GPIO2 LED toggling at 1Hz and independent serial monitoring at 1000ms intervals.
+- **Framework**: Native ESP-IDF v6.1
 
 ---
 
@@ -67,25 +76,38 @@ RTOS-Journey/
 ├── LICENSE                                   # MIT License
 │
 ├── assets/
-│   └── esp32_freertos_architecture.svg       # Vector diagram of FreeRTOS task & memory layers
+│   ├── esp32_freertos_architecture.svg       # Vector diagram of FreeRTOS task & memory layers
+│   ├── esp32_task_scheduler.svg              # Native ESP-IDF dual-task architecture
+│   ├── task_lifecycle.svg                    # FreeRTOS task state machine
+│   ├── execution_timeline.svg               # Task execution timing diagram
+│   └── arduino_vs_esp_idf.svg                # Framework comparison diagram
 │
-└── 01_ESP32_FreeRTOS_LED_Blink/              # Experiment 01
-    ├── README.md                             # In-depth technical breakdown and execution guide
-    └── led_blink_esp32_wroom.ino             # Production-commented Arduino/FreeRTOS source
+├── 01_ESP32_FreeRTOS_LED_Blink/              # Experiment 01: Arduino framework
+│   ├── README.md                             # In-depth technical breakdown and execution guide
+│   └── led_blink_esp32_wroom.ino             # Production-commented Arduino/FreeRTOS source
+│
+└── 02_ESP32_Native_ESP_IDF_Multiple_Tasks/   # Experiment 02: Native ESP-IDF
+    ├── README.md                             # Comprehensive ESP-IDF documentation
+    ├── CMakeLists.txt                        # Project build configuration
+    └── main/
+        ├── CMakeLists.txt                    # Component registration
+        └── main.c                            # Native ESP-IDF source code
 ```
 
 ---
 
 ## Roadmap
 
-- [x] Experiment 01: Single-Task FreeRTOS LED Blinker with State Transitions
-- [ ] Experiment 02: Multi-Task Asynchronous Blinking & Core Pinning
+- [x] Experiment 01: Single-Task FreeRTOS LED Blinker with State Transitions (Arduino Framework)
+- [x] Experiment 02: Native ESP-IDF Multiple FreeRTOS Tasks with Independent Scheduling
 - [ ] Experiment 03: Task Priority Dynamics, Preemption & Starvation Analysis
-- [ ] Experiment 04: Inter-Task Communication via FreeRTOS Queues
-- [ ] Experiment 05: External GPIO Interrupts synchronized via Binary Semaphores
-- [ ] Experiment 06: Mutex Protection for Shared UART Serial Bus
+- [ ] Experiment 04: Task Synchronization with Semaphores and Mutexes
+- [ ] Experiment 05: Inter-Task Communication via FreeRTOS Queues
+- [ ] Experiment 06: External GPIO Interrupts synchronized via Binary Semaphores
 - [ ] Experiment 07: Software Timer Service Daemons & Watchdog Implementation
-- [ ] Experiment 08: Direct-to-Task Notifications (Lightweight IPC)
+- [ ] Experiment 08: GPIO Interrupts and ISR Design
+- [ ] Experiment 09: Memory Management and Stack Analysis
+- [ ] Experiment 10: Advanced FreeRTOS Patterns and Optimization
 
 ---
 

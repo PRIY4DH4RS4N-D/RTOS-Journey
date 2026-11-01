@@ -1,0 +1,54 @@
+# Build artifacts and directories
+build/
+*.o
+*.a
+*.out
+*.elf
+*.map
+
+# ESP-IDF specific build outputs
+*.bin
+flasher_args.json
+sdkconfig
+sdkconfig.old
+
+# ESP-IDF dependencies
+managed_components/
+.espressif/
+
+# CMake generated files
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+install_manifest.txt
+CTestTestfile.cmake
+compile_commands.json
+
+# Python environment files
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.egg-info/
+dist/
+
+# Virtual environment folders
+venv/
+.venv/
+env/
+
+# Language Servers
+.clangd/
+.ccls-cache/
+
+# IDE specific
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS specific
+.DS_Store
+Thumbs.db
+Desktop.ini

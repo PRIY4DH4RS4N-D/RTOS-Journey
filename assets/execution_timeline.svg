@@ -1,0 +1,163 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 650" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0f1d"/>
+      <stop offset="50%" stop-color="#0d1527"/>
+      <stop offset="100%" stop-color="#060913"/>
+    </linearGradient>
+
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#15213b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+
+    <pattern id="gridPattern" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#1e293b" stroke-width="0.5" stroke-opacity="0.4"/>
+    </pattern>
+
+    <filter id="subtleDropShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+
+  <rect width="1100" height="650" fill="url(#bgGrad)" />
+  <rect width="1100" height="650" fill="url(#gridPattern)" />
+  <rect x="15" y="15" width="1070" height="620" rx="12" fill="none" stroke="#1e293b" stroke-width="1.5" />
+
+  <g transform="translate(45, 50)">
+    <text x="0" y="0" font-family="'JetBrains Mono', 'Segoe UI', monospace" font-size="11" font-weight="700" fill="#38bdf8" letter-spacing="1.5">EXECUTION TIMELINE</text>
+    <text x="0" y="30" font-family="'Segoe UI', -apple-system, sans-serif" font-size="24" font-weight="700" fill="#f8fafc">Task Execution Timing Diagram</text>
+    <text x="0" y="52" font-family="'Segoe UI', -apple-system, sans-serif" font-size="13" fill="#94a3b8">Independent periodic execution of LED_Task and Monitor_Task</text>
+  </g>
+
+  <g transform="translate(45, 130)" filter="url(#subtleDropShadow)">
+    <rect x="0" y="0" width="1010" height="470" rx="10" fill="url(#cardGrad)" stroke="#334155" stroke-width="1.5"/>
+    <rect x="0" y="0" width="1010" height="28" rx="10" fill="#1e293b" fill-opacity="0.8"/>
+    <rect x="0" y="18" width="1010" height="10" fill="#1e293b" fill-opacity="0.8"/>
+    <text x="18" y="19" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" fill="#94a3b8" letter-spacing="1">TIME AXIS (MILLISECONDS)</text>
+
+    <g transform="translate(50, 50)">
+      <text x="0" y="0" font-family="'JetBrains Mono', monospace" font-size="10" fill="#64748b">0ms</text>
+      <text x="100" y="0" font-family="'JetBrains Mono', monospace" font-size="10" fill="#64748b">500ms</text>
+      <text x="200" y="0" font-family="'JetBrains Mono', monospace" font-size="10" fill="#64748b">1000ms</text>
+      <text x="300" y="0" font-family="'JetBrains Mono', monospace" font-size="10" fill="#64748b">1500ms</text>
+      <text x="400" y="0" font-family="'JetBrains Mono', monospace" font-size="10" fill="#64748b">2000ms</text>
+      <text x="500" y="0" font-family="'JetBrains Mono', monospace" font-size="10" fill="#64748b">2500ms</text>
+      <text x="600" y="0" font-family="'JetBrains Mono', monospace" font-size="10" fill="#64748b">3000ms</text>
+      <text x="700" y="0" font-family="'JetBrains Mono', monospace" font-size="10" fill="#64748b">3500ms</text>
+      <text x="800" y="0" font-family="'JetBrains Mono', monospace" font-size="10" fill="#64748b">4000ms</text>
+      <text x="900" y="0" font-family="'JetBrains Mono', monospace" font-size="10" fill="#64748b">4500ms</text>
+
+      <line x1="0" y1="10" x2="910" y2="10" stroke="#334155" stroke-width="1"/>
+      <line x1="0" y1="10" x2="0" y2="15" stroke="#334155" stroke-width="1"/>
+      <line x1="100" y1="10" x2="100" y2="15" stroke="#334155" stroke-width="1"/>
+      <line x1="200" y1="10" x2="200" y2="15" stroke="#334155" stroke-width="1"/>
+      <line x1="300" y1="10" x2="300" y2="15" stroke="#334155" stroke-width="1"/>
+      <line x1="400" y1="10" x2="400" y2="15" stroke="#334155" stroke-width="1"/>
+      <line x1="500" y1="10" x2="500" y2="15" stroke="#334155" stroke-width="1"/>
+      <line x1="600" y1="10" x2="600" y2="15" stroke="#334155" stroke-width="1"/>
+      <line x1="700" y1="10" x2="700" y2="15" stroke="#334155" stroke-width="1"/>
+      <line x1="800" y1="10" x2="800" y2="15" stroke="#334155" stroke-width="1"/>
+      <line x1="900" y1="10" x2="900" y2="15" stroke="#334155" stroke-width="1"/>
+    </g>
+
+    <g transform="translate(50, 90)">
+      <text x="0" y="0" font-family="'Segoe UI', sans-serif" font-size="13" font-weight="700" fill="#34d399">LED_Task (GPIO2)</text>
+      <text x="0" y="20" font-family="'JetBrains Mono', monospace" font-size="10" fill="#64748b">Period: 500ms ON + 500ms OFF = 1000ms cycle</text>
+
+      <rect x="0" y="30" width="100" height="25" rx="3" fill="#34d399" fill-opacity="0.6"/>
+      <text x="50" y="47" font-family="'Segoe UI', sans-serif" font-size="11" fill="#ffffff" text-anchor="middle">ON</text>
+
+      <rect x="100" y="30" width="100" height="25" rx="3" fill="#1e293b" stroke="#34d399" stroke-width="1"/>
+      <text x="150" y="47" font-family="'Segoe UI', sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">OFF</text>
+
+      <rect x="200" y="30" width="100" height="25" rx="3" fill="#34d399" fill-opacity="0.6"/>
+      <text x="250" y="47" font-family="'Segoe UI', sans-serif" font-size="11" fill="#ffffff" text-anchor="middle">ON</text>
+
+      <rect x="300" y="30" width="100" height="25" rx="3" fill="#1e293b" stroke="#34d399" stroke-width="1"/>
+      <text x="350" y="47" font-family="'Segoe UI', sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">OFF</text>
+
+      <rect x="400" y="30" width="100" height="25" rx="3" fill="#34d399" fill-opacity="0.6"/>
+      <text x="450" y="47" font-family="'Segoe UI', sans-serif" font-size="11" fill="#ffffff" text-anchor="middle">ON</text>
+
+      <rect x="500" y="30" width="100" height="25" rx="3" fill="#1e293b" stroke="#34d399" stroke-width="1"/>
+      <text x="550" y="47" font-family="'Segoe UI', sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">OFF</text>
+
+      <rect x="600" y="30" width="100" height="25" rx="3" fill="#34d399" fill-opacity="0.6"/>
+      <text x="650" y="47" font-family="'Segoe UI', sans-serif" font-size="11" fill="#ffffff" text-anchor="middle">ON</text>
+
+      <rect x="700" y="30" width="100" height="25" rx="3" fill="#1e293b" stroke="#34d399" stroke-width="1"/>
+      <text x="750" y="47" font-family="'Segoe UI', sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">OFF</text>
+
+      <rect x="800" y="30" width="100" height="25" rx="3" fill="#34d399" fill-opacity="0.6"/>
+      <text x="850" y="47" font-family="'Segoe UI', sans-serif" font-size="11" fill="#ffffff" text-anchor="middle">ON</text>
+    </g>
+
+    <g transform="translate(50, 200)">
+      <text x="0" y="0" font-family="'Segoe UI', sans-serif" font-size="13" font-weight="700" fill="#38bdf8">Monitor_Task (Serial Output)</text>
+      <text x="0" y="20" font-family="'JetBrains Mono', monospace" font-size="10" fill="#64748b">Period: 1000ms (prints status every second)</text>
+
+      <circle cx="0" cy="40" r="6" fill="#38bdf8"/>
+      <text x="12" y="44" font-family="'JetBrains Mono', monospace" font-size="10" fill="#38bdf8">ESP_LOGI</text>
+
+      <circle cx="200" cy="40" r="6" fill="#38bdf8"/>
+      <text x="212" y="44" font-family="'JetBrains Mono', monospace" font-size="10" fill="#38bdf8">ESP_LOGI</text>
+
+      <circle cx="400" cy="40" r="6" fill="#38bdf8"/>
+      <text x="412" y="44" font-family="'JetBrains Mono', monospace" font-size="10" fill="#38bdf8">ESP_LOGI</text>
+
+      <circle cx="600" cy="40" r="6" fill="#38bdf8"/>
+      <text x="612" y="44" font-family="'JetBrains Mono', monospace" font-size="10" fill="#38bdf8">ESP_LOGI</text>
+
+      <circle cx="800" cy="40" r="6" fill="#38bdf8"/>
+      <text x="812" y="44" font-family="'JetBrains Mono', monospace" font-size="10" fill="#38bdf8">ESP_LOGI</text>
+
+      <line x1="0" y1="40" x2="900" y2="40" stroke="#38bdf8" stroke-width="1" stroke-dasharray="3 3" stroke-opacity="0.3"/>
+    </g>
+
+    <g transform="translate(50, 300)">
+      <text x="0" y="0" font-family="'Segoe UI', sans-serif" font-size="13" font-weight="700" fill="#fb923c">Scheduler Activity</text>
+      <text x="0" y="20" font-family="'JetBrains Mono', monospace" font-size="10" fill="#64748b">Context switches and task state transitions</text>
+
+      <rect x="0" y="30" width="910" height="40" rx="4" fill="#090e1a" stroke="#1e293b" stroke-width="1"/>
+      
+      <text x="10" y="48" font-family="'JetBrains Mono', monospace" font-size="9" fill="#34d399">LED_Task Running</text>
+      <text x="10" y="62" font-family="'JetBrains Mono', monospace" font-size="9" fill="#64748b">Monitor_Task Blocked</text>
+
+      <text x="110" y="48" font-family="'JetBrains Mono', monospace" font-size="9" fill="#fb923c">LED_Task Blocked</text>
+      <text x="110" y="62" font-family="'JetBrains Mono', monospace" font-size="9" fill="#64748b">Monitor_Task Running</text>
+
+      <text x="210" y="48" font-family="'JetBrains Mono', monospace" font-size="9" fill="#34d399">LED_Task Running</text>
+      <text x="210" y="62" font-family="'JetBrains Mono', monospace" font-size="9" fill="#64748b">Monitor_Task Blocked</text>
+
+      <text x="310" y="48" font-family="'JetBrains Mono', monospace" font-size="9" fill="#fb923c">LED_Task Blocked</text>
+      <text x="310" y="62" font-family="'JetBrains Mono', monospace" font-size="9" fill="#64748b">Monitor_Task Running</text>
+
+      <text x="410" y="48" font-family="'JetBrains Mono', monospace" font-size="9" fill="#34d399">LED_Task Running</text>
+      <text x="410" y="62" font-family="'JetBrains Mono', monospace" font-size="9" fill="#64748b">Monitor_Task Blocked</text>
+
+      <text x="510" y="48" font-family="'JetBrains Mono', monospace" font-size="9" fill="#fb923c">LED_Task Blocked</text>
+      <text x="510" y="62" font-family="'JetBrains Mono', monospace" font-size="9" fill="#64748b">Monitor_Task Running</text>
+
+      <text x="610" y="48" font-family="'JetBrains Mono', monospace" font-size="9" fill="#34d399">LED_Task Running</text>
+      <text x="610" y="62" font-family="'JetBrains Mono', monospace" font-size="9" fill="#64748b">Monitor_Task Blocked</text>
+
+      <text x="710" y="48" font-family="'JetBrains Mono', monospace" font-size="9" fill="#fb923c">LED_Task Blocked</text>
+      <text x="710" y="62" font-family="'JetBrains Mono', monospace" font-size="9" fill="#64748b">Monitor_Task Running</text>
+
+      <text x="810" y="48" font-family="'JetBrains Mono', monospace" font-size="9" fill="#34d399">LED_Task Running</text>
+      <text x="810" y="62" font-family="'JetBrains Mono', monospace" font-size="9" fill="#64748b">Monitor_Task Blocked</text>
+    </g>
+
+    <g transform="translate(50, 390)">
+      <rect x="0" y="0" width="910" height="60" rx="6" fill="#090e1a" stroke="#1e293b" stroke-width="1"/>
+      <text x="20" y="25" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" fill="#64748b">KEY OBSERVATIONS</text>
+      <text x="20" y="45" font-family="'Segoe UI', sans-serif" font-size="11" fill="#94a3b8">• LED_Task toggles GPIO2 every 500ms (1Hz blink rate)</text>
+      <text x="20" y="60" font-family="'Segoe UI', sans-serif" font-size="11" fill="#94a3b8">• Monitor_Task prints status every 1000ms independently</text>
+      <text x="480" y="45" font-family="'Segoe UI', sans-serif" font-size="11" fill="#94a3b8">• Both tasks have equal priority (1), scheduler time-slices</text>
+      <text x="480" y="60" font-family="'Segoe UI', sans-serif" font-size="11" fill="#94a3b8">• vTaskDelay() blocks tasks, freeing CPU for other tasks</text>
+    </g>
+  </g>
+
+  <text x="45" y="628" font-family="'JetBrains Mono', monospace" font-size="10" fill="#475569">RTOS-Journey | Execution Timeline | Experiment 02</text>
+</svg>
